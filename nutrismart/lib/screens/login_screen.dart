@@ -31,9 +31,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 30),
-                // Gambar/Ilustrasi bisa ditambahkan nanti
                 Image.asset(
-                  'assets/images/login_illustration.png', // Sesuaikan dengan filemu
+                  'assets/images/login_illustration.png',
                   height: 180,
                 ),
                 SizedBox(height: 30),
@@ -79,7 +78,9 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.pushNamed(context, '/otp'); // Ini akan navigasi ke OTPScreen
+  },
+
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       padding: EdgeInsets.symmetric(vertical: 15),
