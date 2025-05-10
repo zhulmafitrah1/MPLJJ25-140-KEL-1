@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -6,7 +7,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEAEA), // Warna pink pastel
+      backgroundColor: const Color(0xFFFFEAEA), // Warna pink pastel
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -14,7 +15,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'NutriSmart',
                   style: TextStyle(
                     fontFamily: 'Serif',
@@ -22,34 +23,34 @@ class LoginScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10),
-                Text(
+                const SizedBox(height: 10),
+                const Text(
                   'Continue to your account',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black87,
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Image.asset(
-                  'assets/images/login_illustration.png',
+                  'assets/images/login_illustration.png', // Sesuaikan dengan filemu
                   height: 180,
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 // Email
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Email, NIK, atau No Telp',
                     filled: true,
                     fillColor: Colors.white,
-                    prefixIcon: Icon(Icons.person),
+                    prefixIcon: const Icon(Icons.person),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 // Password
                 TextField(
                   obscureText: true,
@@ -57,15 +58,15 @@ class LoginScreen extends StatelessWidget {
                     hintText: 'Password',
                     filled: true,
                     fillColor: Colors.white,
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.visibility_off),
+                    prefixIcon: const Icon(Icons.lock),
+                    suffixIcon: const Icon(Icons.visibility_off),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
@@ -73,38 +74,42 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.blueGrey),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 // Tombol Login
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {Navigator.pushNamed(context, '/otp'); // Ini akan navigasi ke OTPScreen
-  },
-
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/otp');
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text.rich(
                   TextSpan(
                     text: 'New to NutriSmart? ',
                     children: [
                       TextSpan(
                         text: 'Register',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.blueAccent,
                           decoration: TextDecoration.underline,
                         ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.pushNamed(context, '/register-guru');
+                          },
                       ),
                     ],
                   ),

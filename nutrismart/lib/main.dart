@@ -4,7 +4,6 @@ import 'screens/otp_screen.dart';
 import 'screens/register_guru.dart';
 import 'screens/splash_screen.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -20,14 +19,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // Routing ke Login dan OTP Screen
-      initialRoute: '/register-guru',
+      // Atur route awal sesuai kebutuhan, misal SplashScreen
+      initialRoute: '/',
       routes: {
-        '/': (context) => const LoginScreen(),
-         '/login': (context) => const LoginScreen(),
+        '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginScreen(),
         '/otp': (context) => const OTPScreen(),
-        '/home': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
-         '/register-guru': (context) => const RegisterGuruPage(),
+        '/register-guru': (context) => const RegisterGuruPage(),
+        '/home': (context) => const MyHomePage(title: 'NutriSmart Home'),
       },
     );
   }
@@ -35,6 +34,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
